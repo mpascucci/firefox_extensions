@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Wordreference quick search",
+  "version": "1.0",
+
+  "description": "Search directly wordreference from the address bar",
+
+  "icons": {
+    "48": "icons/48pxIcon.png",
+    "96": "icons/96pxIcon.png"
+  },
+
+  "omnibox" : { "keyword" : "wr" },
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "permissions": ["storage"],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "wordreference_quick_search@mpascucci.github.io"
+    }
+  },
+
+  "background": {
+    "scripts": ["wordreference_quick_search.js"]
+  }
+}
