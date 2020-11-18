@@ -32,17 +32,28 @@ function parseUserInput(input) {
 
 browser.omnibox.onInputEntered.addListener((input, disposition) => {
     browser.storage.sync.get(["langFrom","langTo"]).then( (item) =>  {
+        var langFrom = item.langFrom;
+        var langTo = item.langTo;
+ 
         // chech if user specified parameters in the omnibox.
         // in this case override the extension settings.
-        params = parseUserInput(input);
+       params = parseUserInput(input);
         if (params.language) {
-            item.langFrom = params.language.from;
-            if (params.language.to) {
-              item.langTo = params.language.to;
+            if (params.language.from) {
+              langFrom = params.language.from;
+              if (params.language.to) {
+                langTo = params.language.to;
+              }
+            } else {
+              // reverse the default translation if the user
+              // put a minus sign without language specification
+              langFrom = item.langTo;
+              langTo = item.langFrom;
             }
           input = params.text;
         }
-        var url = `https://www.wordreference.com/${item.langFrom}${item.langTo}/${input}`;
+
+        var url = `https://www.wordreference.com/${langFrom}${langTo}/${input}`;
         switch (disposition) {
           case "currentTab":
             browser.tabs.update({url});
