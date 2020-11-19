@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+
+    div {
+      border-radius: 5px;
+      padding: 20px;
+    }
+
+    input[type=text],
+    select {
+      width: calc( 2rem + 40px );
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>
+      Define here the default language for Wikipedia Quick Search. This language Will be used in default search.
+    </p>
+    <p>
+      Remember that you can temporarely switch to another language by using a language argument in the search string.
+    </p>
+    <p>
+      Example: "wik -fr baguette" will look for baguette in the franch Wikipedia, temporarily ignoring the general
+      settings.
+    </p>
+    <form>
+      <label>Default wikipedia language:</label>
+      <input type="text" id="lang" maxLength="2">
+      <br>
+      <input type="submit" value="Save"></input>
+    </form>
+  </div>
+
+  <script src="options.js"></script>
+
+</body>
+
+</html>

@@ -1,18 +1,29 @@
 {
   "manifest_version": 2,
   "name": "wikipedia quick search",
-  "version": "1.0",
-
+  "version": "1.1",
   "description": "Search directly wikipedia from the address bar",
-
   "icons": {
     "48": "icons/48px-wikipedia_quick_search.png",
     "96": "icons/96px-wikipedia_quick_search.png"
   },
-
-  "omnibox" : { "keyword" : "wik" },
-
+  "omnibox": {
+    "keyword": "wik"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "wikipedia_quick_search@mpascucci.github.io"
+    }
+  },
   "background": {
-    "scripts": ["wikipedia_quick_search.js"]
+    "scripts": [
+      "wikipedia_quick_search.js"
+    ]
   }
 }
