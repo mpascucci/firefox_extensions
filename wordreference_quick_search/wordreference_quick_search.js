@@ -32,8 +32,9 @@ function parseUserInput(input) {
 
 browser.omnibox.onInputEntered.addListener((input, disposition) => {
     browser.storage.sync.get(["langFrom","langTo"]).then( (item) =>  {
-        var langFrom = item.langFrom;
-        var langTo = item.langTo;
+        // if preferences are undefined, use default values
+        var langFrom = item.langFrom || 'en';
+        var langTo = item.langTo || 'it';
  
         // chech if user specified parameters in the omnibox.
         // in this case override the extension settings.

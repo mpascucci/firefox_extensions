@@ -29,7 +29,8 @@ browser.omnibox.onInputEntered.addListener((input, disposition) => {
 
     if (typeof pinput.language == 'undefined') {
       // use extension setting value if the user did not specify a language.
-      pinput.language = item.lang;
+      // use english if the preference are also undefined
+        pinput.language = item.lang || 'en';
     }
 
     url = `https://${pinput.language}.wikipedia.org/wiki/${pinput.text}`;
