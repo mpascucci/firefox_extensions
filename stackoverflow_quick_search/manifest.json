@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Stackoverflow quick search",
+  "version": "1.2",
+  "description": "Search directly Stackoverflow from the address bar",
+  "icons": {
+    "48": "icons/48px-stackoverflow-quick-search.png",
+    "96": "icons/96px-stackoverflow-quick-search.png"
+  },
+  "omnibox": {
+    "keyword": "so"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "stackoverflow_quick_search@mpascucci.github.io"
+    }
+  },
+  "background": {
+    "scripts": [
+      "stackoverflow_quick_search.js"
+    ]
+  }
+}
