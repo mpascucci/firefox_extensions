@@ -14,10 +14,12 @@ browser.omnibox.setDefaultSuggestion({
 /* Parse omnibox user input */
 function parseUserInput(input) {
   var language;
-  var split_input = input.split(" ", 2);
-  if ((split_input.length == 2) && (split_input[0].startsWith('-'))) {
-    language = split_input[0].slice(1, 3);
-    input = split_input[1];
+  var split_input = input.split(" ");
+  if ((split_input.length > 2) && (split_input[0].startsWith('-'))) {
+    // remove the minus
+    language = split_input[0].slice(1);
+    // join the search string
+    input = split_input.slice(1).join(' ');
   }
   return { language: language, text: input };
 }
@@ -25,6 +27,7 @@ function parseUserInput(input) {
 browser.omnibox.onInputEntered.addListener((input, disposition) => {
   var url;
   var pinput = parseUserInput(input);
+  console.log(pinput);
   browser.storage.sync.get("lang").then((item) => {
 
     if (typeof pinput.language == 'undefined') {
