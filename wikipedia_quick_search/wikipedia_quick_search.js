@@ -15,7 +15,7 @@ browser.omnibox.setDefaultSuggestion({
 function parseUserInput(input) {
   var language;
   var split_input = input.split(" ");
-  if ((split_input.length > 2) && (split_input[0].startsWith('-'))) {
+  if (split_input[0].startsWith('-')) {
     // remove the minus
     language = split_input[0].slice(1);
     // join the search string

@@ -17,15 +17,15 @@ browser.omnibox.setDefaultSuggestion({
 /* Parse omnibox user input */
 function parseUserInput(input) {
   var language;
-  var split_input = input.split(" ",2);
+  var split_input = input.split(" ");
   // detect option starting with minus
-  if ((split_input.length==2) && (split_input[0].startsWith('-'))) {
+  if (split_input[0].startsWith('-')) {
     // detect language options
     language = {
       from: split_input[0].slice(1,3),
       to: split_input[0].slice(3,5)
     };
-    input = split_input[1];
+    input = split_input.slice(1).join('+');
   }; 
   return {language:language, text:input};
 }
